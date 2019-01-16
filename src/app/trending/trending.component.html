@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Trending</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div *ngIf="movies != null">
+      <p>Pages : {{ movies.page }}</p>
+      <p>Total pages : {{ movies.total_pages }}</p>
+      <p>Total result : {{ movies.total_results }}</p>
+      <div *ngFor='let movie of movies.results' class="col s6 m4">
+          <div class="card horizontale">
+            <div class="card-stacked">
+              <div class="card-content">
+                  {{ movie.title }} 
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
