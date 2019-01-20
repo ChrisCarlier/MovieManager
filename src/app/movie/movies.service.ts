@@ -11,8 +11,11 @@ export class MoviesService {
 
   constructor(private http: HttpClient) { }
   
-  private baseUrl: string = 'https://api.themoviedb.org/3/discover/movie?api_key=dbc0f41184b1d20c72b889e4e7d96c22&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1';
+  private baseUrl: string = 'https://api.themoviedb.org/3';
+  // private trendingUrl: string = this.baseUrl + '/discover/movie?api_key=dbc0f41184b1d20c72b889e4e7d96c22&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1';
+  private trendingUrl: string = this.baseUrl + '/trending/movie/day?api_key=dbc0f41184b1d20c72b889e4e7d96c22';
   private apires: ApiResult;
+  private reponse: Response;
 
   private log(log: string) {
     console.log(log);
@@ -32,9 +35,14 @@ export class MoviesService {
   }
 
   getTrending(): Observable<any> {
-    this.apires = <ApiResult><unknown>this.http.get(this.baseUrl);
+    
+    // this.apires = <ApiResult><unknown>this.http.get(this.baseUrl);
     // return this.apires;
-    console.log(this.http.get(this.baseUrl));
-    return this.http.get(this.baseUrl);
+    // console.log(this.http.get(this.baseUrl));
+    return this.http.get(this.trendingUrl);
+  }
+
+  getImage(imgUrl: string): void {
+    // return this.http.get(this.baseUrl + imgUrl);
   }
 }

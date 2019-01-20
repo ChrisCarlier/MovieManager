@@ -1,22 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>Trending</h1>
+      <h1>Tendance film du jour</h1>
     </div>
   </div>
 
   <div class="row">
-    <div *ngIf="movies != null">
-      <p>Pages : {{ movies.page }}</p>
-      <p>Total pages : {{ movies.total_pages }}</p>
-      <p>Total result : {{ movies.total_results }}</p>
-      <div *ngFor='let movie of movies.results' class="col s6 m4">
-          <div class="card horizontale">
-            <div class="card-stacked">
-              <div class="card-content">
-                  {{ movie.title }} 
-              </div>
+    <div *ngIf="moviesList != null">
+      <div *ngFor='let movie of moviesList.results' class="col s12 m4 l3">
+          <div class="card horizontale cardLayout">
+            <div class="card-image imgLayout">
+              <img [src]="getPosterImg(movie.poster_path)" alt="">
             </div>
+            <p class="movietitle">{{ movie.title }}</p>
           </div>
       </div>
     </div>
