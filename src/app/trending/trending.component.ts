@@ -21,17 +21,14 @@ export class TrendingComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieService.getTrending().subscribe(result => this.moviesList = result);
-    // console.log(this.movies);
-    // this.movieService.getTrending().subscribe(result => { console.log(result); } );
-    // console.log(this.movieService.getTrending());
-    // this.movieService.getTest();
   }
 
   getPosterImg(imgUrl: string): string {
     return 'https://image.tmdb.org/t/p/w154/' + imgUrl;
   }
-  // getPosterImg(imgUrl: string): Observable<any> {
-  //   return this.http.get('https://image.tmdb.org/t/p/w92/' + imgUrl);
-  // }
+
+  selectMovie(movie: Movie) {
+    console.log(movie.id);
+  }
 
 }
