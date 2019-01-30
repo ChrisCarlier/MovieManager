@@ -1,2 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+/***************/
+/* TEST CLASS  */ 
+/***************/
+.test1{
+    background-color: chartreuse;
+}
+.test2{
+    background-color: blue;
+}
+.test3{
+    background-color: darkgoldenrod;
+}
+/***************/
+/* TEST CLASS  */ 
+/***************/
+
+
+
+.chip {
+    display: inline-block;
+    padding: 0 20px;
+    margin-right: 2px;
+    height: 20px;
+    font-size: 13px;
+    line-height: 20px;
+    border-radius: 25px;
+    font-weight: 300;
+    color: rgb(255, 255, 255) ;
+    background-color: rgb(16, 95, 95);
+  }
+
+.btnimg{
+    width:70px;
+}
+.btnimg:hover{
+    cursor: pointer;
+}

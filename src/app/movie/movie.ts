@@ -13,6 +13,7 @@ export class Movie {
     adult: boolean;
     overview: string;
     release_date: Date;
+    background_image: string;
 
     constructor(id: number, title: string, vote_average: number) {
         this.id = id;

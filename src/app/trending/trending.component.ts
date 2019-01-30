@@ -16,7 +16,7 @@ export class TrendingComponent implements OnInit {
 
   private moviesList: ApiResult;
 
-  constructor(private movieService: MoviesService, private http: HttpClient) {  }
+  constructor(private movieService: MoviesService,private router: Router, private http: HttpClient) {  }
   // constructor(private router: Router, private movieService: MoviesService) {  }
 
   ngOnInit(): void {
@@ -24,11 +24,12 @@ export class TrendingComponent implements OnInit {
   }
 
   getPosterImg(imgUrl: string): string {
-    return 'https://image.tmdb.org/t/p/w154/' + imgUrl;
+    return this.movieService.getPosterImg(imgUrl, 154);
   }
 
   selectMovie(movie: Movie) {
-    console.log(movie.id);
+    let link = ['/movie/', movie.id];
+    this.router.navigate(link);
   }
 
 }

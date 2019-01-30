@@ -7,7 +7,7 @@ import { MoviedetailsComponent } from '../moviedetails/moviedetails.component';
 // les routes du module Pokémon
 const moviesRoutes: Routes = [
   { path: 'trending', component: TrendingComponent},
-  { path: 'move/:id', component: MoviedetailsComponent}
+  { path: 'movie/:id', component: MoviedetailsComponent}
 ];
 
 @NgModule({
