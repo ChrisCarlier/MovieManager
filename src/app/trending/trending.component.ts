@@ -14,9 +14,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TrendingComponent implements OnInit {
 
-  private moviesList: ApiResult;
+  public moviesList: ApiResult;
 
-  constructor(private movieService: MoviesService,private router: Router, private http: HttpClient) {  }
+  constructor(private movieService: MoviesService, private router: Router, private http: HttpClient) {  }
   // constructor(private router: Router, private movieService: MoviesService) {  }
 
   ngOnInit(): void {

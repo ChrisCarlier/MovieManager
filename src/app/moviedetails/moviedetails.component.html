@@ -1,47 +1,66 @@
 <div *ngIf="movie" class="row movieContainer" [style.background-image]="image">
-    <div class="container ">
-      <h2 class=""> {{ movie.original_title }}</h2>
-      <div class="row">
-        <div class="section col-sm-12 col-md-4 mx-auto ">
-          <img [src]="getPosterImg(movie.poster_path) " alt="poster" class="img-fluid rounded" style="display:block; margin: 0 auto;">
+  <div class="container ">
+    <h2 class="shadow p-3 mb-5 bg-white rounded"> {{ movie.original_title }}</h2>
+    <div class="row">
+      <div class="section col-sm-12 col-md-4 mx-auto ">
+        <img [src]="getPosterImg(movie.poster_path) " alt="poster" class="img-fluid rounded" style="display:block; margin: 0 auto;">
+      </div>
+      <div class="moviecontent col-sm mx-auto ">
+        <div class="section">
+          <label>Genres : </label>
+          <br>
+          <div *ngFor="let genre of movie.genres" class="chip">{{ genre.name }} </div>
         </div>
-        <div class="moviecontent col-sm mx-auto ">
-          <div class="section">
-              <label>Genres : </label>
-              <br>
-              <div *ngFor="let genre of movie.genres" class="chip">{{ genre.name }} </div>
-          </div>
-          <div class="section">
-              <label>Date sortie : </label>
-              <br>
-              <p>{{ movie.release_date | date:"dd/MM/yyyy" }}</p>
-              <label>Synopsis : </label>
-              <br>
-            <p>{{ movie.overview }}</p>
-          </div>
-          <div class="section">
-              <label>Note moyenne : </label>
-              <br>
-              <p class="score">{{ movie.vote_average }}</p>
-            <div class="c100 p52 small dark green">
-              <span class="score">{{ movie.vote_average*10 }}%</span>
-              <div class="slice">
-                <div class="bar">
-                  <div class="fill"></div>
-                </div>
-              </div>
-              </div>
-          </div>
-          <div *ngIf="movie.homepage != ''" class="section">
-              <label>Liens : </label>
-              <br>
-              <a href="{{ movie.homepage }}" target="_blank">
-                <img src="http://nas-carlier.synology.me:81/images/icones/web" alt="" class="rounded btnimg" style="width:32px;">
-              </a>
-          </div>
+        <div class="section">
+          <label>Date sortie : </label>
+          <br>
+          <p class="content-text">{{ movie.release_date | date:"dd/MM/yyyy" }}</p>
+          <label>Synopsis : </label>
+          <br>
+          <p class="content-text">{{ movie.overview }}</p>
         </div>
-      </div>  
+        <div class="section">
+          <label>Note moyenne : </label>
+          <br>
+          <!-- <p class="score">{{ movie.vote_average }}</p> -->
+          <p id="score">{{ movie.vote_average*10 }}%</p>
+        </div>
+        <div *ngIf="movie.homepage != ''" class="section">
+          <label>Liens : </label>
+          <br>
+          
+        </div>
+        <div class="section">
+            <table class="table table-dark" >
+                <tbody>
+                  <tr>
+                    <th>
+                      <a href="{{ movie.homepage }}" target="_blank">
+                        <img src="http://nas-carlier.synology.me:81/images/icones/web" alt="" class="rounded btnimg" style="width:32px;">
+                      </a>
+                    </th>
+                    <td>
+                      HomePage
+                    </td>
+                  </tr>
+                  <div *ngFor="let movieVideo of listMovieVideo">
+                    <tr *ngIf="movieVideo.type === 'Trailer'">
+                    <th>
+                      <a href="https://www.youtube.com/watch?v={{ movieVideo.key }}" target="_blank">
+                        <img src="http://nas-carlier.synology.me:81/images/icones/youtube" alt="" style="width:32px;">
+                      </a>
+                    </th>
+                    <td>
+                        {{ movieVideo.name }}
+                    </td>
+                    </tr>
+                  </div>
+              </tbody>
+            </table>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <h4 *ngIf='!movie' class="center">
