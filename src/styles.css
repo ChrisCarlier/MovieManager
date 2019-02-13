@@ -17,7 +17,13 @@
 /* TEST CLASS  */ 
 /***************/
 
-
+body{
+    
+    background-image: url("img/movieBG.jpg");
+    /* background-image: url("img_tree.gif"), url("paper.gif");
+    background-repeat: no-repeat, repeat;
+    background-color: #cccccc; */
+}
 
 .chip {
     display: inline-block;
@@ -36,5 +42,19 @@
     width:70px;
 }
 .btnimg:hover{
+    cursor: pointer;
+}
+
+.movietitle{
+    font-weight: 600;
+    height: 60px;
+    text-align: center;
+    background-color: green;
+}
+
+.card{
+    margin-top:10px;
+}
+.card:hover{
     cursor: pointer;
 }

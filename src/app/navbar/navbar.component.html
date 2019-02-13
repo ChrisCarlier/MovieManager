@@ -5,21 +5,18 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item active" routerLinkActive="active">
         <a routerLink="/trending" class="nav-link" >Trending</a>
       </li>
+      <li class="nav-item active" routerLinkActive="active">
+        <a routerLink="/search-movie" class="nav-link" >Search</a>
+      </li>
     </ul>
-    <!--
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul> -->
+    <form class="form-inline my-2 my-lg-0" id="navbarMovieSearch">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (input)="onMovieTitleUpdage($event)">
+      <button class="btn btn-outline-success my-2 my-sm-0"  (click)="getMovieByTitle()">Search</button>
+    </form>
+
   </div>
 </nav>

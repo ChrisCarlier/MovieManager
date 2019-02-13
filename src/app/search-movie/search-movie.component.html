@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+      <!-- <form class="card card-sm"> -->
+        <div class="card-body row no-gutters align-items-center">
+          <div class="col-auto">
+            <i class="fas fa-search h4 text-body"></i>
+          </div>
+          <!--end of col-->
+          <div class="col">
+            <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search" (input)="onMovieTitleUpdage($event)">
+          </div>
+          <!--end of col-->
+          <div class="col-auto">
+              <button class="btn btn-outline-success my-2 my-sm-0"  (click)="getMovieByTitle()">Search</button>
+          </div>
+          <!--end of col-->
+        </div>
+      <!-- </form> -->
+    </div>
+    <!--end of col-->
+  </div>
+</div>
+
+<div class="container">
+    <div *ngIf="moviesList != null" class="">
+      <div class="row">
+        <div *ngFor='let movie of moviesList.results' class="card" style="margin-left:auto; margin-right:auto;">
+          <div class="">
+            <div class="card-header" style="height: 100px; vertical-align:bottom;">
+              <p style="word-wrap: break-word; width: 150px; height: 100%; text-align:center; ">{{ movie.title }}</p>
+            </div>
+            <div class="card-body" (click)="selectMovie(movie)">
+              <div class="text-center">
+                <img [src]="getPosterImg(movie.poster_path)" alt=" {{movie.title}}" class="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!--  CONTAINER  -->

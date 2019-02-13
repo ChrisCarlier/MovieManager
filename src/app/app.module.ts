@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesModule } from './movies/movies.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SearchMovieComponent } from './search-movie/search-movie.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   declarations: [
     AppComponent,
     NavbarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SearchMovieComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

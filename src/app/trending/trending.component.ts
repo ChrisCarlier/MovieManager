@@ -4,7 +4,6 @@ import { Movie } from '../movie/movie';
 import { Router } from '@angular/router';
 import { MoviesService } from '../movie/movies.service';
 import { ApiResult } from '../movie/apiResult';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -28,8 +27,11 @@ export class TrendingComponent implements OnInit {
   }
 
   selectMovie(movie: Movie) {
-    let link = ['/movie/', movie.id];
-    this.router.navigate(link);
+    this.movieService.selectMovie(movie);
   }
+  // selectMovie(movie: Movie) {
+  //   let link = ['/movie/', movie.id];
+  //   this.router.navigate(link);
+  // }
 
 }
